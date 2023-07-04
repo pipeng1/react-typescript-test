@@ -1,4 +1,5 @@
 .page {
+  box-sizing: border-box;
   padding: 16px;
   background-color: #fff;
 }
@@ -19,8 +20,8 @@
 }
 
 table {
-  border-collapse: collapse;
   margin-top: 15px;
+  border-collapse: collapse;
 }
 tbody {
   margin: 20px 0;
@@ -33,4 +34,87 @@ td {
 }
 .checkboxWrapper {
   padding: 0 10px;
+}
+.tabs {
+  margin-top: 15px;
+}
+
+.tabContent {
+  .tabContentTop {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    .tabContentTopL {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      .egImg {
+        width: 146px;
+        height: 192px;
+      }
+      .picPreviewBtnBox {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 35px;
+        padding-right: 5px;
+        line-height: 35px;
+        text-align: right;
+        background: rgba(0, 0, 0, 0.4);
+      }
+    }
+    .tabContentTopR {
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #f8f9fc;
+      .uploadPictureDesc {
+        flex-shrink: 1;
+        width: 80px;
+        .uploadPictureText::before {
+          color: red;
+          content: '*';
+        }
+        .uploadPictureTextTip {
+          margin-top: 5px;
+          color: red;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .tabContentBottom {
+  }
+}
+
+.page :global {
+  .ant-tabs-top > .ant-tabs-nav {
+    margin-bottom: 0;
+  }
+  .ant-tabs-content-holder {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-top: 0;
+    border-radius: 2px;
+  }
+  .ant-upload-list-picture-card-container {
+    width: 135px;
+    height: 135px;
+  }
+  .ant-upload.ant-upload-select-picture-card {
+    width: 135px;
+    height: 135px;
+  }
+  .anticon svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .anticon-plus + div {
+    margin-top: 0 !important;
+    color: #666;
+    font-size: 12px;
+  }
 }

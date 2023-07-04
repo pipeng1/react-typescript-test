@@ -32,4 +32,18 @@ export type scopeNoItemType = {
   prodscopenoOrder: number;
   remark: string;
   updateAt: number;
-}
+};
+export type licenceFieldItemType = {
+  canOcr: boolean;
+  data: object[];
+  isLongUse: string;
+  licenceTypeId: string;
+  licenceTypeName: string;
+  [key: string]: any;
+};
+
+export type bussinessItemType = {
+  licenceTypeId: string;
+  licenceTypeName: string;
+  [key: string]: any;
+};

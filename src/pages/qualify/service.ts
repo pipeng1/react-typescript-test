@@ -1,9 +1,15 @@
 // @ts-ignore
 /* eslint-disable */
 import { request } from 'umi';
-import { BusinessItemDataType, ScopeItemDataType, scopeNoItemType } from './data';
+import {
+  BusinessItemDataType,
+  ScopeItemDataType,
+  scopeNoItemType,
+  licenceFieldItemType,
+  bussinessItemType,
+} from './data';
 
-const authHeader = { Authorization: '1658304497329782787_39515a34b3db421b9f275280388e1ce6' };
+const authHeader = { Authorization: '1658304497329782787_4e0f84108a9a467f9fb01b7981a2c75c' };
 /** 获取企业类型 GET /api/b2b/user/dict/getDict?dictKey=buyer_type */
 export async function getBussinessTypes(
   params: {
@@ -89,6 +95,49 @@ export async function getProdscopenos(
     total?: number;
     success?: boolean;
   }>('/sypt/api/b2b/user/buyer/getProdscopenos.json', {
+    method: 'GET',
+    headers: authHeader,
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+
+/** 获取证照配置字段 */
+export async function getLicenceField(
+  params?: {
+    // query
+  },
+  options?: { [key: string]: any },
+) {
+  return request<{
+    data?: licenceFieldItemType[] | null;
+    /** 列表的内容总数 */
+    total?: number;
+    success?: boolean;
+  }>('/sypt/api/b2b/licence/queryLicenceField', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}
+/** 获取经营证照 */
+export async function getMustLicence(
+  params?: {
+    // query
+    custType: string;
+  },
+  options?: { [key: string]: any },
+) {
+  return request<{
+    data?: bussinessItemType[] | null;
+    /** 列表的内容总数 */
+    total?: number;
+    success?: boolean;
+  }>('/sypt/api/b2b/user/api/buyer/getMustLicence?', {
     method: 'GET',
     headers: authHeader,
     params: {
